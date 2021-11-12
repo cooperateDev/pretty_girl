@@ -1,0 +1,48 @@
+.complete {
+  background: #b1efb1 !important;
+}
+
+.desc {
+  width: 300px !important;
+}
+
+.total_price {
+  float: right;
+  color: red;
+}
+
+.month, .year {
+  width: 100px;
+}
+
+.incomplete {
+  background: pink !important;
+}
+
+.date-width {
+  width: 190px !important;
+}
+
+.user-width {
+  width: 100px !important;
+}
+
+.action-width {
+  width: 50px !important;
+}
+
+.filter {
+  margin-top: 7px;
+}
+
+.name-width {
+  min-width: 150px !important;
+}
+
+.start-date-width, .end-date-width, td {
+  min-width: 100px;
+}
+
+.desc-width {
+  min-width: 400px;
+}
