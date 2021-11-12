@@ -17,6 +17,10 @@
 
 // Frontend
 Route::get('/', 'Frontend\HomeController@index');
+Route::get('/blog', 'Frontend\BlogController@index');
+Route::get('/blog/detail', 'Frontend\BlogController@detail');
+Route::get('/webshop', 'Frontend\WebshopController@index');
+Route::get('/dataportal', 'Frontend\DataportalController@index');
 
 //Auth
 Route::get('admin/login', 'Auth\LoginController@index')->name('login')	;
