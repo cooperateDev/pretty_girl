@@ -28,13 +28,8 @@
         
         <!-- Tromas Color -->
         <link rel="stylesheet" href="{{asset('assets/frontend/css/skin/skin1.css')}}">
-        <!--<link rel="stylesheet" href="css/skin/skin2.css">-->
-        <!--<link rel="stylesheet" href="css/skin/skin3.css">-->
-        <!--<link rel="stylesheet" href="css/skin/skin4.css">-->
-        <!--<link rel="stylesheet" href="css/skin/skin5.css">-->
-        <!--<link rel="stylesheet" href="css/skin/skin6.css">-->
-        <!--<link rel="stylesheet" href="css/skin/skin7.css">-->
-        <!--<link rel="stylesheet" href="css/skin/skin8.css">-->
+
+        <link rel="stylesheet" href="{{asset('assets/frontend/css/main.css')}}">
         
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

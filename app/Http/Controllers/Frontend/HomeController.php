@@ -4,10 +4,6 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Slide;
-use App\Models\Task;
-use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -19,19 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         
-        $users = User::get()->where('role', 1);
-        $categories = Category::get();
-        $slides = Slide::get();
-        $tasks = Task::select('tasks.*', 'categories.title')
-                        ->join('categories', 'tasks.category_id', '=', 'categories.id')
-                        ->get();
 
-        return view('frontend.app', [
-            'users'         => $users,
-            'categories'    => $categories,
-            'slides'        => $slides,
-            'tasks'         => $tasks
-        ]);
+        return view('frontend.app');
     }
 
     /**

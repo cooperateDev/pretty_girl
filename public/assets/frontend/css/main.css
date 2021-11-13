@@ -1,0 +1,12 @@
+.bread-list {
+	cursor: pointer;
+	color: white;
+}
+
+.bread-list:hover {
+	background-color: red;
+}
+
+.image-input {
+	margin-bottom: 20px;
+}

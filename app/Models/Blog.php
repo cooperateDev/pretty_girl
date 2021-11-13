@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Blog extends Model
 {
 
     /**
@@ -15,10 +15,8 @@ class Task extends Model
      * @var array
      */
 
-    protected $table = 'tasks';
+    protected $table = 'blogs';
 
-    protected $fillable = [
-        'name', 'desc', 'url', 'category_id','link'
-    ];
+    protected $guarded = ['id'];
    
 }

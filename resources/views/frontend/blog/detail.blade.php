@@ -6,10 +6,11 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<h2>Blog Single</h2>
-				<ul class="bread-list">
-					<li><a href="index.html">Home<i class="fa fa-angle-right"></i></a></li>
-					<li class="active"><a href="#">Blog Single</a></li>
-				</ul>
+				<a href="{{url('/blog/edit')}}">
+                    <ul class="bread-list">
+                        <li><h4>Blog Edit</h4></li>
+                    </ul>
+                </a>
 			</div>
 		</div>
 	</div>
@@ -182,34 +183,16 @@
 							<div class="single-blog">
 								<div class="blog-post">
 									<div class="blog-head">
-										<img src="{{ asset('assets/frontend/images/blog/blog2.jpg')}}" alt="#">
+										<img src="{{ asset('upload/images/blog/' . $single_blog->img_url)}}" alt="#">
 									</div>
 									<div class="blog-info">
-										<h2><a href="#">Best Marketing ways of 2017</a></h2>
+										<h2><a href="#">{{$single_blog->title}}</a></h2>
 										<div class="meta">
 											<span><i class="fa fa-user-o"></i>By: <a href="#">Tromas</a></span>
 											<span><i class="fa fa-comments-o"></i><a href="#">10k</a></span>
 											<span><i class="fa fa-heart-o"></i><a href="#">32k</a></span>
 										</div>
-										<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-										<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-										<div class="img-right">
-											<div class="text">
-												<h4>Awesome Design</h4>
-												<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula</p>
-												<ul>
-													<li>Powerfull HTML5 Template</li>
-													<li>Quality Design and more</li>
-													<li>Smooth Design</li>
-													<li>It's ferfect for any business website</li>
-												</ul>
-											</div>
-											<img src="{{ asset('assets/frontend/images/blog/blog2.jpg')}}" alt="#">
-										</div>
-										<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words</p>
-										<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words</p>
-										<blockquote>Do what you love to do and give it your very best. Whether it's business or baseball, or the theater, or any field. If you don't love what you're doing and you can't give it your best, get out of it. Life is too short. You'll be an old man before you know it.</blockquote>
-										<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words</p>
+										<blockquote>{{$single_blog->desc}}</blockquote>
 										<div class="blog-bottom">
 											<ul class="share">
 												<li><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>

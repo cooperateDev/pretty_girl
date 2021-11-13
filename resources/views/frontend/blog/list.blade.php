@@ -6,10 +6,11 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <h2>Blog Grid</h2>
-                <ul class="bread-list">
-                    <li><a href="#">Home<i class="fa fa-angle-right"></i></a></li>
-                    <li class="active"><a href="#">Blog Grid</a></li>
-                </ul>
+                <a href="{{url('/blog/create')}}">
+                    <ul class="bread-list">
+                        <li><h4>Blog Create</h4></li>
+                    </ul>
+                </a>
             </div>
         </div>
     </div>
@@ -23,143 +24,29 @@
             <div class="blog-main"> 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <!-- Single Post -->
-                            <div class="single-blog slider">
-                                <div class="blog-post">
-                                    <div class="blog-head">
-                                        <div class="blog-slide">
-                                            <div class="single-slide">
-                                                <img src="{{asset('assets/frontend/images/blog/blog1.jpg')}}" alt="#">
-                                            </div>
-                                            <div class="single-slide">
-                                                <img src="{{asset('assets/frontend/images/blog/blog2.jpg')}}" alt="#">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="blog-info">
-                                        <h2><a href="#">10 Tips for Growing Your Business</a></h2>
-                                        <div class="meta">
-                                            <span><i class="fa fa-list"></i><a href="#">Marketing</a></span>
-                                            <span><i class="fa fa-calendar-o"></i>28 Sep, 2017</span>
-                                            <span><i class="fa fa-heart-o"></i><a href="#">35</a></span>
-                                        </div>
-                                        <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-                                    </div>  
-                                </div>              
-                            </div>
-                            <!--/ End Single Post -->
-                        </div>
-                        
+                        @foreach($blogs as $blog)
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <!-- Single Post -->
                             <div class="single-blog">
                                 <div class="blog-post">
                                     <div class="blog-head">
-                                        <img src="{{asset('assets/frontend/images/blog/blog2.jpg')}}" alt="#">
-                                        <a class="link" href="{{url('/blog/detail')}}"><i class="fa fa-paper-plane"></i></a>
+                                        <img src="{{asset('upload/images/blog/' . $blog->img_url)}}" alt="blog image" style="width: 400px; height: 200px">
+                                        <a class="link" href="{{url('/blog/detail/' . $blog->id)}}"><i class="fa fa-paper-plane"></i></a>
                                     </div>
                                     <div class="blog-info">
-                                        <h2><a href="#">Amazing Multipage & Onepage</a></h2>
+                                        <h2><a href="#">{{$blog->title}}</a></h2>
                                         <div class="meta">
                                             <span><i class="fa fa-list"></i><a href="#">Web</a></span>
                                             <span><i class="fa fa-calendar-o"></i>15 Aug, 2017</span>
-                                            <span><i class="fa fa-heart-o"></i><a href="#">35</a></span>
+                                            <span><i class="fa fa-heart-o"></i><a href="#">{{$blog->read_cnt}}</a></span>
                                         </div>
-                                        <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
+                                        <p>{{$blog->desc}}</p>
                                     </div>
                                 </div>              
                             </div>
                             <!--/ End Single Post -->
                         </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <!-- Single Post -->
-                            <div class="single-blog iframe">
-                                <div class="blog-post">
-                                    <div class="blog-head">
-                                        <img src="{{asset('assets/frontend/images/blog/blog2.jpg')}}" alt="#">
-                                        <a class="link" href="#"><i class="fa fa-paper-plane"></i></a>
-                                    </div>
-                                    <div class="blog-info">
-                                        <h2><a href="#">Top 10 Tips for growing business </a></h2>
-                                        <div class="meta">
-                                            <span><i class="fa fa-user-o"></i>By: <a href="#">Admin</a></span>
-                                            <span><i class="fa fa-comments-o"></i><a href="#">88</a></span>
-                                            <span><i class="fa fa-heart-o"></i><a href="#">65</a></span>
-                                        </div>
-                                        <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-                                    </div>
-                                </div>              
-                            </div>
-                            <!--/ End Single Post -->
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <!-- Single Post -->
-                            <div class="single-blog iframe">
-                                <div class="blog-post">
-                                    <div class="blog-head">
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <img src="{{asset('assets/frontend/images/blog/blog2.jpg')}}" alt="#">
-                                        <a class="link" href="#"><i class="fa fa-paper-plane"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-info">
-                                        <h2><a href="#">Awesome Vimeo Video song ever</a></h2>
-                                        <div class="meta">
-                                            <span><i class="fa fa-list"></i><a href="#">Video</a></span>
-                                            <span><i class="fa fa-calendar-o"></i>02 Apr, 2017</span>
-                                            <span><i class="fa fa-heart-o"></i><a href="#">35</a></span>
-                                        </div>
-                                        <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-                                    </div>
-                                </div>              
-                            </div>
-                            <!--/ End Single Post -->
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <!-- Single Post -->
-                            <div class="single-blog iframe">
-                                <div class="blog-post">
-                                    <div class="blog-head">
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <img src="{{asset('assets/frontend/images/blog/blog2.jpg')}}" alt="#">
-                                        <a class="link" href="#"><i class="fa fa-paper-plane"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-info">
-                                        <h2><a href="#">What makes us best in the world?</a></h2>
-                                        <div class="meta">
-                                            <span><i class="fa fa-list"></i><a href="#">Video</a></span>
-                                            <span><i class="fa fa-calendar-o"></i>25 March, 2017</span>
-                                            <span><i class="fa fa-heart-o"></i><a href="#">35</a></span>
-                                        </div>
-                                        <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-                                    </div>
-                                </div>              
-                            </div>
-                            <!--/ End Single Post -->
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <!-- Single Post -->
-                            <div class="single-blog">
-                                <div class="blog-post">
-                                    <div class="blog-head">
-                                        <img src="{{asset('assets/frontend/images/blog/blog2.jpg')}}" alt="#">
-                                        <a class="link" href="#"><i class="fa fa-paper-plane"></i></a>
-                                    </div>
-                                    <div class="blog-info">
-                                        <h2><a href="#">Tips for success in 2017</a></h2>
-                                        <div class="meta">
-                                            <span><i class="fa fa-list"></i><a href="#">Web</a></span>
-                                            <span><i class="fa fa-calendar-o"></i>02 Feb, 2017</span>
-                                            <span><i class="fa fa-heart-o"></i><a href="#">99</a></span>
-                                        </div>
-                                        <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-                                    </div>
-                                </div>              
-                            </div>
-                            <!--/ End Single Post -->
-                        </div>
+                        @endforeach
                     </div>
                     <div class="row">
                         <div class="col-md-12">
