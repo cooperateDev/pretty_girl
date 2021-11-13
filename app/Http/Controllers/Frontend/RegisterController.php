@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -67,7 +67,7 @@ class RegisterController extends Controller
         ],$messages);
 
         if ($validator->fails()) {
-            return redirect('admin/signup')
+            return redirect('/signup')
                         ->withErrors($validator)
                         ->withInput();
 
@@ -81,10 +81,10 @@ class RegisterController extends Controller
         ]);
 
         if($user)
-            return view('admin.auth.login');
+            return view('frontend.auth.login');
     }
 
     public function index(){
-        return view('admin.auth.signup');
+        return view('frontend.auth.signup');
     }
 }

@@ -110,7 +110,7 @@ a:active {
 }
 .btn {
 	display: inline-block;
-	background: #353535;
+	background: red;
 	color: #fff;
 	padding: 14px 35px;
 	text-transform: uppercase;
@@ -786,6 +786,8 @@ input:-webkit-autofill:focus {
 	position: absolute;
 	right: 0;
 	top: 20px;
+	display: flex;
+	align-items: center;
 }
 .header .social li {
 	display: inline-block;
@@ -808,6 +810,38 @@ input:-webkit-autofill:focus {
 .header .social li.active a,
 .header .social li:hover a{
 	background:#fff;
+}
+
+/* sign */
+.header .sign {
+	position: absolute;
+	right: 0;
+	top: 10px;
+	display: flex;
+	align-items: center;
+}
+.header .sign li {
+	display: inline-block;
+	margin-right: 8px;
+}
+.header .sign li:last-child{
+	margin:0;
+}
+.header .sign a {
+	display: block;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	color: #fff;
+	border-radius: 0px;
+	background: transparent;
+	border-radius: 100%;
+}
+.header .sign li.active a,
+.header .sign li:hover a{
+	background:#fff;
+	color: red;
 }
 
 /* Header Style 2 */

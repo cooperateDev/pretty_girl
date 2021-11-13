@@ -22,6 +22,13 @@ Route::get('/blog/detail', 'Frontend\BlogController@detail');
 Route::get('/webshop', 'Frontend\WebshopController@index');
 Route::get('/dataportal', 'Frontend\DataportalController@index');
 
+// Frontend Auth
+Route::get('/login', 'Frontend\LoginController@index')->name('frontendlogin');
+Route::post('/login', 'Frontend\LoginController@login');
+Route::get('/logout', 'Frontend\LoginController@logout');
+Route::get('/signup', 'Frontend\RegisterController@index')->name('frontendsignup');
+Route::post('/signup', 'Frontend\RegisterController@create');
+
 //Auth
 Route::get('admin/login', 'Auth\LoginController@index')->name('login')	;
 Route::post('admin/login', 'Auth\LoginController@login');

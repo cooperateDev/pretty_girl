@@ -123,15 +123,36 @@
                                         </div>
                                     </nav>
                                     <!--/ End Main Menu -->
-                                    <!-- Social -->
-                                    <ul class="social">
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="active"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                    </ul>
-                                    <!--/ End Social -->
+                                    @if(!Auth::check())
+                                        <ul class="social">
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="active"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                            <li>
+                                                <a href="{{url('/login')}}">
+                                                    <i class="fa fa-sign-in"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    @else
+                                        <ul class="sign">
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="active"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                            <li>
+                                                <img src="{{asset('assets/frontend/images/author2.jpg')}}" alt="avatar" style="width: 50px; border-radius: 50%; margin-left: 20px"/>
+                                            </li>
+                                            <li>
+                                                <a href="{{url('/logout')}}">
+                                                    <i class="fa fa-sign-out"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    @endif
                                 </div>
                             </div>
                         </div>

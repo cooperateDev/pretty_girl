@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -43,8 +43,7 @@ class LoginController extends Controller
 
     public function index()
     {
-        
-        return view('admin.auth.login');
+        return view('frontend.auth.login');
     }
 
     public function login(Request $request)
@@ -62,18 +61,19 @@ class LoginController extends Controller
         ],$messages);
 
         if ($validator->fails()) {
-            return redirect('admin/login')
+            return redirect('/login')
                         ->withErrors($validator)
                         ->withInput();
+
         }
          //var_dump($credentials);die;
         if (Auth::attempt(['email' => $email, 'password' => $password ])) {
             // Authentication passed...
-             return redirect('admin/report');
+             return redirect('/login');
         }
         else
         {
-            return view('admin.auth.login');
+            return view('frontend.auth.login');
         }    
 
     }
@@ -82,6 +82,6 @@ class LoginController extends Controller
     {
         Auth::LogOut();
 
-        return view('admin.auth.login');
+        return view('frontend.auth.login');
     }
 }
