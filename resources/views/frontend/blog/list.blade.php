@@ -6,7 +6,11 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <h2>Blog Grid</h2>
-                <a href="{{url('/blog/create')}}">
+                @if(Auth::check())
+                <a href="{{url('/blog/create_page')}}">
+                @else
+                <a href="{{url('/login')}}">
+                @endif
                     <ul class="bread-list">
                         <li><h4>Blog Create</h4></li>
                     </ul>
@@ -30,17 +34,22 @@
                             <div class="single-blog">
                                 <div class="blog-post">
                                     <div class="blog-head">
-                                        <img src="{{asset('upload/images/blog/' . $blog->img_url)}}" alt="blog image" style="width: 400px; height: 200px">
-                                        <a class="link" href="{{url('/blog/detail/' . $blog->id)}}"><i class="fa fa-paper-plane"></i></a>
+                                        @if($blog->img_url)
+                                            <img src="{{asset('upload/images/blog/' . $blog->img_url)}}" alt="blog image" style="width: 400px; height: 200px">
+                                            <a class="link" href="{{url('/blog/detail/' . $blog->id)}}"><i class="fa fa-paper-plane"></i></a>
+                                        @else
+                                            <img src="{{asset('upload/images/blog/default.jpg')}}" alt="blog image" style="width: 400px; height: 200px">
+                                            <a class="link" href="{{url('/blog/detail/' . $blog->id)}}"><i class="fa fa-paper-plane"></i></a>
+                                        @endif
                                     </div>
                                     <div class="blog-info">
-                                        <h2><a href="#">{{$blog->title}}</a></h2>
+                                        <h2>{{$blog->title}}</h2>
                                         <div class="meta">
-                                            <span><i class="fa fa-list"></i><a href="#">Web</a></span>
-                                            <span><i class="fa fa-calendar-o"></i>15 Aug, 2017</span>
-                                            <span><i class="fa fa-heart-o"></i><a href="#">{{$blog->read_cnt}}</a></span>
+                                            <span><i class="fa fa-user-o"></i>{{$blog->name}}</span>
+                                            <span><i class="fa fa-calendar-o"></i>{{substr($blog->updated_at, 0, 10)}}</span>
+                                            <span><i class="fa fa-heart-o"></i>{{$blog->read_cnt}}</span>
                                         </div>
-                                        <p>{{$blog->desc}}</p>
+                                        <p style="min-height: 100px; max-height: 100px;">{{strlen($blog->desc) > 150 ? substr($blog->desc, 0, 150) . "..." : $blog->desc }}</p>
                                     </div>
                                 </div>              
                             </div>

@@ -17,10 +17,22 @@
 
 // Frontend
 Route::get('/', 'Frontend\HomeController@index');
+
+// Blog
 Route::get('/blog', 'Frontend\BlogController@index');
 Route::get('/blog/detail/{id}', 'Frontend\BlogController@detail');
-Route::get('/blog/create', 'Frontend\BlogController@createPage');
+Route::get('/blog/create_page', 'Frontend\BlogController@create_page');
+Route::post('/blog/create', 'Frontend\BlogController@create');
+Route::get('/blog/edit_page/{id}', 'Frontend\BlogController@edit_page');
+Route::post('/blog/update', 'Frontend\BlogController@update');
+
+// Comment
+Route::post('/comment/create', 'Frontend\CommentController@create');
+
+// Webshop
 Route::get('/webshop', 'Frontend\WebshopController@index');
+
+// Data portal
 Route::get('/dataportal', 'Frontend\DataportalController@index');
 
 // Frontend Auth

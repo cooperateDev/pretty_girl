@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<h2>Blog Single</h2>
-				<a href="{{url('/blog/edit')}}">
+				<a href="{{url('/blog/edit_page/' . $single_blog->id)}}">
                     <ul class="bread-list">
                         <li><h4>Blog Edit</h4></li>
                     </ul>
@@ -131,7 +131,7 @@
 						<!--/ End Post Tab -->
 						
 						<!-- Newslatter Subscribe -->
-						<div class="single-sidebar subscribe">
+						<!-- <div class="single-sidebar subscribe">
 							<h2><span>Newslatter Subscribe</span></h2>
 							<div class="single-widget subscribe">
 								<p>Signup and get new blog post every week to your email. beatae vitae dicta sunt explicabo. consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel.</p>
@@ -140,7 +140,7 @@
 									<button type="submit">Subscribe!</button>
 								</form>	
 							</div>
-						</div>
+						</div> -->
 						<!--/ End Newslatter Subscribe  -->
 						
 						<!-- Blog Category -->
@@ -183,14 +183,18 @@
 							<div class="single-blog">
 								<div class="blog-post">
 									<div class="blog-head">
-										<img src="{{ asset('upload/images/blog/' . $single_blog->img_url)}}" alt="#">
+										@if($single_blog->img_url)
+											<img src="{{ asset('upload/images/blog/' . $single_blog->img_url)}}" alt="blog image">
+										@else
+											<img src="{{ asset('upload/images/blog/default.jpg')}}" alt="blog image">
+										@endif
 									</div>
 									<div class="blog-info">
-										<h2><a href="#">{{$single_blog->title}}</a></h2>
+										<h2>{{$single_blog->title}}</h2>
 										<div class="meta">
-											<span><i class="fa fa-user-o"></i>By: <a href="#">Tromas</a></span>
-											<span><i class="fa fa-comments-o"></i><a href="#">10k</a></span>
-											<span><i class="fa fa-heart-o"></i><a href="#">32k</a></span>
+											<span><i class="fa fa-user-o"></i>{{$single_blog->name}}</span>
+											<span><i class="fa fa-comments-o"></i>{{$single_blog->comment_cnt}}</span>
+											<span><i class="fa fa-heart-o"></i>{{$single_blog->read_cnt}}</span>
 										</div>
 										<blockquote>{{$single_blog->desc}}</blockquote>
 										<div class="blog-bottom">
@@ -201,10 +205,10 @@
 												<li><a href="#"><i class="fa fa-google-plus"></i>Plus</a></li>
 											</ul>
 											<!-- Next Prev -->
-											<ul class="prev-next">
+											<!-- <ul class="prev-next">
 												<li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
 												<li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-											</ul>
+											</ul> -->
 											<!--/ End Next Prev -->
 										</div>
 									</div>
@@ -215,9 +219,10 @@
 						
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<div class="blog-comments">
-								<h2>Comments (23)</h2>
+								<h2>Comments ({{$single_blog->comment_cnt}})</h2>
 								<div class="comments-body">
 									<!-- Single Comments -->
+									@foreach($comments as $comment)
 									<div class="single-comments">
 										<div class="main">
 											<div class="head">
@@ -225,34 +230,21 @@
 											</div>
 											<div class="body">
 												<h4>John Shakil<span class="meta">June 05, 2017</span></h4>
-												<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas <a href="#"><i class="fa fa-reply"></i>replay</a></p>
+												<p>{{$comment->desc}}</p>
 											</div>
 										</div>
-										<div class="comment-list">
+										<!-- <div class="comment-list">
 											<div class="head">
 												<img src="{{ asset('assets/frontend/images/author2.jpg')}}" alt="#"/>
 											</div>
 											<div class="body">
 												<h4>Smith Ron<span class="meta">Sep 20, 2017</span></h4>
-												<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas <a href="#"><i class="fa fa-reply"></i>replay</a></p>
+												<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas</p>
 											</div>
-										</div>
+										</div> -->
 									</div>
+									@endforeach
 									<!--/ End Single Comments -->
-									
-									<!-- Single Comments -->
-									<div class="single-comments">
-										<div class="main">
-											<div class="head">
-												<img src="{{ asset('assets/frontend/images/author3.jpg')}}" alt="#"/>
-											</div>
-											<div class="body">
-												<h4>Frase Rimu<span class="meta">June 05, 2017</span></h4>
-												<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas <a href="#"><i class="fa fa-reply"></i>replay</a></p>
-											</div>
-										</div>
-									</div>		
-									<!--/ End Single Comments -->											
 								</div>
 							</div>
 						</div>
@@ -261,24 +253,26 @@
 							<div class="comments-form">
 								<h2>LEAVE A COMMENT</h2>
 								<!-- Contact Form -->
-								<form class="form" method="post" action="mail/mail.php">
+								<form class="form" method="post" action="{{url('/comment/create')}}">
+									@csrf
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-12">
 											<div class="form-group">
 												<i class="fa fa-user"></i>
 												<input type="text" name="name" placeholder="Full Name" required="required">
+												@error('name')
+				                                    <div class="alert alert-danger">{{ $message }}</div>
+				                                @enderror
 											</div>
 										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<i class="fa fa-envelope"></i>
-												<input type="email" name="email" placeholder="Your Email" required="required">
-											</div>
-										</div>
+										<input type="hidden" value={{$single_blog->id}} name="blog_id"/>
 										<div class="col-md-12">
 											<div class="form-group">
 												<i class="fa fa-pencil"></i>
-												<textarea name="message" rows="7" placeholder="Type Your Message Here" ></textarea>
+												<textarea name="desc" rows="7" placeholder="Type Your Message Here" ></textarea>
+												@error('desc')
+				                                    <div class="alert alert-danger">{{ $message }}</div>
+				                                @enderror
 											</div>
 										</div>
 										<div class="col-md-12">

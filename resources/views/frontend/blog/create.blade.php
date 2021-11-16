@@ -7,18 +7,18 @@
                 <div class="login-content">
                     <div class="login-form">
                         <div class="section-title"><h1>Create</h1></div>
-                        <form method="POST" action="{{url('/signup')}}">
+                        <form method="POST" action="{{url('/blog/create')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" name="title" class="form-control" placeholder="Title">
+                                <input type="text" name="title" class="form-control" placeholder="Title" required="required">
                                 @error('title')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea rows="10" ></textarea>
+                                <textarea rows="10" name="desc" placeholder="Description" required="required"></textarea>
                                 @error('desc')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -35,4 +35,4 @@
         </div>
     </div>
 </section>
-@include('frontend.footer')s
+@include('frontend.footer')
