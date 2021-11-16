@@ -11,7 +11,7 @@
                             @csrf
                             <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" name="title" class="form-control" placeholder="Title"value={{ $single_blog->title}} required="required">
+                                <input type="text" name="title" class="form-control" placeholder="Title"value="{{ $single_blog->title }}" required>
                                 @error('title')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -24,9 +24,23 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="image-input">
-                                <label>Image</label>
-                                <input type="file" name="file" accept="image/*">
+                            <div class="row">
+                                <div class="col-6 col-lg-6">
+                                    <div class="image-input">
+                                        <label>Image</label>
+                                        <input type="file" name="file" accept="image/*" id="choose-file">
+                                        <label for="choose-file">Choose File</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-6">
+                                    <div class="image-preview" id="img-preview">
+                                        @if($single_blog->img_url)
+                                        <img src="{{ asset('/upload/images/blog/' . $single_blog->img_url) }}" alt="previewImage" />
+                                        @else
+                                        Image Preview
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Update</button>
                         </form>
@@ -37,3 +51,4 @@
     </div>
 </section>
 @include('frontend.footer')
+<script src="{{asset('assets/frontend/js/editBlogPage.js')}}" type="text/javascript"></script>

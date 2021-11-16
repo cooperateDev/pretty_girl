@@ -36,94 +36,32 @@
 							<div class="tab-content">
 								<div role="tabpanel" class="tab-pane fade in active" id="latest">
 									<!-- Single Post -->
+									@foreach($latests as $latest)
 									<div class="single-post">
 										<div class="post-img">
-											<img src="{{ asset('assets/frontend/images/blog/blog1.jpg')}}" alt=""/>
+											<img src="{{ asset('upload/images/blog/' . $latest->img_url)}}" alt="image"/>
 										</div>
 										<div class="post-info">
-											<p>September 30, 2017</p>
-											<h4><a href="#">Best Marketing ways of 2017</a></h4>
+											<p>{{substr($latest->updated_at, 0, 10)}}</p>
+											<h4><a href="{{url('/blog/detail/' . $latest->id)}}">{{$latest->title}}</a></h4>
 										</div>
 									</div>
-									<!--/ End Single Post -->
-									<!-- Single Post -->
-									<div class="single-post">
-										<div class="post-img">
-											<img src="{{ asset('assets/frontend/images/blog/blog2.jpg')}}" alt=""/>
-										</div>
-										<div class="post-info">
-											<p>July 15, 2017</p>
-											<h4><a href="#')}}">How to develop your own website</a></h4>
-										</div>
-									</div>
-									<!--/ End Single Post -->
-									<!-- Single Post -->
-									<div class="single-post">
-										<div class="post-img">
-											<img src="{{ asset('assets/frontend/images/blog/blog3.jpg')}}" alt=""/>
-										</div>
-										<div class="post-info">
-											<p>May 25, 2017</p>
-											<h4><a href="#')}}">Top 10 Tips for growing business </a></h4>
-										</div>
-									</div>
-									<!--/ End Single Post -->
-									<!-- Single Post -->
-									<div class="single-post">
-										<div class="post-img">
-											<img src="{{ asset('assets/frontend/images/blog/blog1.jpg')}}" alt=""/>
-										</div>
-										<div class="post-info">
-											<p>March 08, 2017</p>
-											<h4><a href="#')}}">How to create a Flat website</a></h4>
-										</div>
-									</div>
+									@endforeach
 									<!--/ End Single Post -->
 								</div>
 								<div role="tabpanel" class="tab-pane fade" id="popular">
 									<!-- Single Post -->
+									@foreach($populars as $popular)
 									<div class="single-post">
 										<div class="post-img">
-											<img src="{{ asset('assets/frontend/images/blog/blog1.jpg')}}" alt=""/>
+											<img src="{{ asset('upload/images/blog/' . $popular->img_url)}}" alt="image"/>
 										</div>
 										<div class="post-info">
-											<p>July 20, 2017</p>
-											<h4><a href="#')}}">Best Marketing ways of 2017</a></h4>
+											<p>{{substr($popular->updated_at, 0, 10)}}</p>
+											<h4><a href="{{url('/blog/detail/' . $popular->id)}}">{{$popular->title}}</a></h4>
 										</div>
 									</div>
-									<!--/ End Single Post -->
-									<!-- Single Post -->
-									<div class="single-post">
-										<div class="post-img">
-											<img src="{{ asset('assets/frontend/images/blog/blog2.jpg')}}" alt=""/>
-										</div>
-										<div class="post-info">
-											<p>April 15, 2017</p>
-											<h4><a href="#')}}">How to develop your own website</a></h4>
-										</div>
-									</div>
-									<!--/ End Single Post -->
-									<!-- Single Post -->
-									<div class="single-post">
-										<div class="post-img">
-											<img src="{{ asset('assets/frontend/images/blog/blog3.jpg')}}" alt=""/>
-										</div>
-										<div class="post-info">
-											<p>March 25, 2017</p>
-											<h4><a href="#">Top 10 Tips for growing business </a></h4>
-										</div>
-									</div>
-									<!--/ End Single Post -->
-									<!-- Single Post -->
-									<div class="single-post">
-										<div class="post-img">
-											<img src="{{ asset('assets/frontend/images/blog/blog1.jpg')}}" alt=""/>
-										</div>
-										<div class="post-info">
-											<p>March 08, 2017</p>
-											<h4><a href="#">How to create a Flat website</a></h4>
-										</div>
-									</div>
+									@endforeach
 									<!--/ End Single Post -->
 								</div>
 							</div>
@@ -144,7 +82,7 @@
 						<!--/ End Newslatter Subscribe  -->
 						
 						<!-- Blog Category -->
-						<div class="single-sidebar category">
+						<!-- <div class="single-sidebar category">
 							<h2><span>Categorys</span></h2>
 							<ul>
 								<li><a href="#">Business Developments<span>33</span></a></li>			
@@ -154,11 +92,11 @@
 								<li><a href="#">Finance Solutions</a><span>93</span></li>			
 								<li><a href="#">Our Gallery</a><span>10</span></li>			
 							</ul>
-						</div>
+						</div> -->
 						<!--/ End Blog Category -->
 						
 						<!-- Blog Tags -->
-						<div class="single-sidebar tags">
+						<!-- <div class="single-sidebar tags">
 							<h2><span>Tag Cloud</span></h2>
 							<ul>
 								<li><a href="#">HTML5</a></li>			
@@ -171,7 +109,7 @@
 								<li class="medium"><a href="#">Plugins</a></li>	
 								<li><a href="#">website template</a></li>		
 							</ul>
-						</div>
+						</div> -->
 						<!--/ End Blog Tags -->
 					</aside>
 					<!--/ End Blog Sidebar -->
@@ -226,11 +164,13 @@
 									<div class="single-comments">
 										<div class="main">
 											<div class="head">
-												<img src="{{ asset('assets/frontend/images/author.jpg')}}" alt="#"/>
+												<img src="{{ asset('upload/images/avatar/' . $comment->avatar)}}" alt="avatar"/>
 											</div>
 											<div class="body">
-												<h4>John Shakil<span class="meta">June 05, 2017</span></h4>
-												<p>{{$comment->desc}}</p>
+												<h4>{{$comment->name}}<span class="meta">{{substr($comment->updated_at, 0, 10)}}</span></h4>
+												<p>{{$comment->desc}}
+													<a href="#"><i class="fa fa-reply"></i>replay</a>
+												</p>
 											</div>
 										</div>
 										<!-- <div class="comment-list">

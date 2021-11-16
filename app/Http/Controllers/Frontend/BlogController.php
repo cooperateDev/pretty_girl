@@ -13,7 +13,9 @@ class BlogController extends Controller
 {
     public function index()
     {
-    	$blogs = Blog::leftjoin('users', 'blogs.user_id', 'users.id')->get();
+    	$blogs = Blog::leftjoin('users', 'blogs.user_id', 'users.id')
+                ->select('blogs.*', 'users.name')
+                ->get();
 
         return view('frontend.blog.list', [
         	'blogs' => $blogs
@@ -24,12 +26,24 @@ class BlogController extends Controller
     {
         $id = $request->id;
 
-        $single_blog = Blog::where('blogs.id', $id)->leftjoin('users', 'users.id', 'blogs.user_id')->first();
-        $comments = Comment::where('blog_id', $id)->get(); 
+        Blog::where('id', $id)->increment('read_cnt');
+
+        $single_blog = Blog::where('blogs.id', $id)
+                        ->leftjoin('users', 'users.id', 'blogs.user_id')
+                        ->select('blogs.*', 'users.name')
+                        ->first();
+        $comments = Comment::where('blog_id', $id)
+                    ->leftjoin('users', 'comments.user_id', 'users.id')
+                    ->select('comments.*', 'users.name', 'users.avatar')
+                    ->get();
+        $latests = Blog::orderBy('updated_at', 'desc')->get()->skip(0)->take(10);
+        $populars = Blog::orderBy('read_cnt', 'desc')->get()->skip(0)->take(10);
 
         return view('frontend.blog.detail', [
             'single_blog' => $single_blog,
-            'comments' => $comments
+            'comments' => $comments,
+            'populars' => $populars,
+            'latests' => $latests
         ]);
     }
 
@@ -130,19 +144,19 @@ class BlogController extends Controller
         }
 
         if($image != '')
-            Blog::update([
+            Blog::where('id', $id)->update([
                 'title' => $title,
                 'desc' => $desc,
                 'img_url' => $image,
                 'user_id' => Auth::user()->id
-            ])->where('id', $id);
+            ]);
         else
-            Blog::update([
+            Blog::where('id', $id)->update([
                 'title' => $title,
                 'desc' => $desc,
                 'user_id' => Auth::user()->id
-            ])->where('id', $id);
+            ]);
         
-        return redirect('/blog');
+        return redirect('/blog/detail/' . $id);
     }
 }

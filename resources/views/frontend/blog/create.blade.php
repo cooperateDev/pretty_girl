@@ -23,9 +23,19 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="image-input">
-                                <label>Image</label>
-                                <input type="file" name="file" accept="image/*">
+                            <div class="row">
+                                <div class="col-6 col-lg-6">
+                                    <div class="image-input">
+                                        <label>Image</label>
+                                        <input type="file" name="file" accept="image/*" id="choose-file">
+                                        <label for="choose-file">Choose File</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-6">
+                                    <div class="image-preview" id="img-preview">
+                                        Image Preview
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Create</button>
                         </form>
@@ -36,3 +46,4 @@
     </div>
 </section>
 @include('frontend.footer')
+<script src="{{asset('assets/frontend/js/editBlogPage.js')}}" type="text/javascript"></script>

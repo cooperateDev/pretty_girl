@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Blog;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,6 +36,8 @@ class CommentController extends Controller
             'blog_id' => $blog_id,
             'user_id' => Auth::user()->id
         ]);
+
+        Blog::where('id', $blog_id)->increment('comment_cnt');
         
         return redirect('/blog/detail/' . $blog_id);
     }
