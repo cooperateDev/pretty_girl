@@ -30,6 +30,8 @@
         <link rel="stylesheet" href="{{asset('assets/frontend/css/skin/skin1.css')}}">
 
         <link rel="stylesheet" href="{{asset('assets/frontend/css/main.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
         
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -139,7 +141,11 @@
                                             <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                                             <li><a href="#"><i class="fa fa-behance"></i></a></li>
                                             <li>
-                                                <img src="{{asset('assets/frontend/images/author2.jpg')}}" alt="avatar" style="width: 50px; border-radius: 50%; margin-left: 20px"/>
+                                                @if(Auth::user()->avatar)
+                                                <img src="{{asset('upload/images/avatar/' . Auth::user()->avatar)}}" alt="avatar" style="width: 50px; border-radius: 50%; margin-left: 20px"/>
+                                                @else
+                                                <img src="{{asset('upload/images/avatar/default.jpg')}}" alt="avatar" style="width: 50px; border-radius: 50%; margin-left: 20px"/>
+                                                @endif
                                             </li>
                                             <li>
                                                 <a href="{{url('/logout')}}">

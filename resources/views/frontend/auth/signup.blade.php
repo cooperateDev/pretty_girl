@@ -10,7 +10,7 @@
                     </div> -->
                     <div class="login-form">
                         <div class="section-title"><h1>Register</h1></div>
-                        <form method="POST" action="{{url('/signup')}}">
+                        <form method="POST" action="" id="form_signup">
                             @csrf
                             <div class="form-group">
                                 <label>User Name</label>
@@ -38,7 +38,7 @@
                                     <input type="checkbox"> Agree the terms and policy 
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                            <button type="button" class="signup-submit btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
                             
                             <div class="register-link m-t-15 text-center">
                                 <p>Already have account? <a href="{{url('/login')}}" style="color: red"> Sign in</a></p>

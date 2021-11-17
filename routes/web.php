@@ -28,6 +28,7 @@ Route::post('/blog/update', 'Frontend\BlogController@update');
 
 // Comment
 Route::post('/comment/create', 'Frontend\CommentController@create');
+Route::post('/comment/reply', 'Frontend\CommentController@reply');
 
 // Webshop
 Route::get('/webshop', 'Frontend\WebshopController@index');

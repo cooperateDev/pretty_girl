@@ -305,7 +305,7 @@ Version:	1.1
 		/*======================================
 		18. Animate Scroll JS
 		======================================*/ 
-		$('.btn, .slicknav_nav li a').on('click', function(event) {
+		$('.slicknav_nav li a').on('click', function(event) {
 			var $anchor = $(this);
 			$('html, body').stop().animate({
 				scrollTop: $($anchor.attr('href')).offset().top -0 

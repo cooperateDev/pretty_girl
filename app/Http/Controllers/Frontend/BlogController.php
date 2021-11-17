@@ -35,7 +35,10 @@ class BlogController extends Controller
                         ->first();
         $comments = Comment::where('blog_id', $id)
                     ->leftjoin('users', 'comments.user_id', 'users.id')
-                    ->select('comments.*', 'users.name', 'users.avatar')
+                    ->leftjoin('replies', 'comments.id', 'replies.comment_id')
+                    ->leftjoin('users as u', 'comments.user_id', 'u.id')
+                    ->select('comments.*', 'users.name as comment_name', 'users.avatar as comment_avatar', 'u.name as reply_name', 'u.avatar as reply_avatar', 'replies.desc as reply_desc', 'replies.updated_at as reply_updated_at')
+                    ->orderBy('comments.id', 'asc')
                     ->get();
         $latests = Blog::orderBy('updated_at', 'desc')->get()->skip(0)->take(10);
         $populars = Blog::orderBy('read_cnt', 'desc')->get()->skip(0)->take(10);

@@ -41,3 +41,22 @@
   background-color: #fff;
   color: #f44336;
 }
+
+.reply-btn {
+  cursor: pointer;
+}
+
+.blog-main .single-comments .main {
+  margin-top: 30px;
+}
+
+.blog-main .single-comments {
+  border-bottom: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.blog-main .single-comments .comment-list {
+  border-top: 0px;
+  padding-top: 0px;
+}

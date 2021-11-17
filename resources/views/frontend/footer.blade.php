@@ -126,6 +126,11 @@
             <!-- Main JS -->
             <script src="{{asset('assets/frontend/js/main.js')}}" type="text/javascript"></script>
             <script src="{{asset('assets/frontend/js/customer.js')}}" type="text/javascript"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+            <script type="text/javascript">
+                var basic_url = "{{ url('') }}";
+            </script>
         </div>
     </body>
 </html>

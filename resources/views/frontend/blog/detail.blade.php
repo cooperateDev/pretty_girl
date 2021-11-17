@@ -160,28 +160,72 @@
 								<h2>Comments ({{$single_blog->comment_cnt}})</h2>
 								<div class="comments-body">
 									<!-- Single Comments -->
-									@foreach($comments as $comment)
+									@foreach($comments as $key => $comment)
 									<div class="single-comments">
+										@if($key == 0)
 										<div class="main">
 											<div class="head">
-												<img src="{{ asset('upload/images/avatar/' . $comment->avatar)}}" alt="avatar"/>
+												<img src="{{ asset('upload/images/avatar/' . $comment->comment_avatar)}}" alt="avatar"/>
 											</div>
 											<div class="body">
-												<h4>{{$comment->name}}<span class="meta">{{substr($comment->updated_at, 0, 10)}}</span></h4>
+												<h4>{{$comment->comment_name}}<span class="meta">{{substr($comment->updated_at, 0, 10)}}</span></h4>
 												<p>{{$comment->desc}}
-													<a href="#"><i class="fa fa-reply"></i>replay</a>
+													<a class="reply-btn" onclick="replyFn({{$comment->id}})"><i class="fa fa-reply"></i>replay</a>
 												</p>
 											</div>
 										</div>
-										<!-- <div class="comment-list">
+										@elseif($comments[$key - 1]->id != $comment->id)
+										<div class="main">
 											<div class="head">
-												<img src="{{ asset('assets/frontend/images/author2.jpg')}}" alt="#"/>
+												<img src="{{ asset('upload/images/avatar/' . $comment->comment_avatar)}}" alt="avatar"/>
 											</div>
 											<div class="body">
-												<h4>Smith Ron<span class="meta">Sep 20, 2017</span></h4>
-												<p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas</p>
+												<h4>{{$comment->comment_name}}<span class="meta">{{substr($comment->updated_at, 0, 10)}}</span></h4>
+												<p>{{$comment->desc}}
+													<a class="reply-btn" onclick="replyFn({{$comment->id}})"><i class="fa fa-reply"></i>replay</a>
+												</p>
 											</div>
-										</div> -->
+										</div>
+										@endif
+										@if($comment->reply_desc != '')
+										<div class="comment-list">
+											<div class="head">
+												<img src="{{ asset('upload/images/avatar/' . $comment->reply_avatar)}}" alt="#"/>
+											</div>
+											<div class="body">
+												<h4>{{$comment->reply_name}}<span class="meta">{{substr($comment->reply_updated_at, 0, 10)}}</span></h4>
+												<p>{{$comment->reply_desc}}</p>
+											</div>
+										</div>
+										@endif
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="reply-form-{{$comment->id}}" style="display: none; margin-top: 30px;">
+												<h2>LEAVE A REPLY</h2>
+												<!-- Contact Form -->
+												<form class="form" method="post" action="" id="form_{{$comment->id}}">
+													@csrf
+													<div class="row">
+														<input type="hidden" value={{$single_blog->id}} name="blog_id"/>
+														<input type="hidden" value={{$comment->id}} name="comment_id"/>
+														<div class="col-md-12">
+															<div class="form-group">
+																<i class="fa fa-pencil"></i>
+																<textarea name="desc" rows="7" placeholder="Type Your Message Here" ></textarea>
+																@error('desc')
+								                                    <div class="alert alert-danger">{{ $message }}</div>
+								                                @enderror
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="form-group button">	
+																<button type="button" class="reply-submit button primary"><i class="fa fa-send"></i>Submit</button>
+															</div>
+														</div>
+													</div>
+												</form>
+												<!--/ End Contact Form -->
+											</div>
+										</div>
 									</div>
 									@endforeach
 									<!--/ End Single Comments -->
@@ -193,10 +237,10 @@
 							<div class="comments-form">
 								<h2>LEAVE A COMMENT</h2>
 								<!-- Contact Form -->
-								<form class="form" method="post" action="{{url('/comment/create')}}">
+								<form class="form" method="post" action="" id="comment_create">
 									@csrf
 									<div class="row">
-										<div class="col-md-12">
+										<!-- <div class="col-md-12">
 											<div class="form-group">
 												<i class="fa fa-user"></i>
 												<input type="text" name="name" placeholder="Full Name" required="required">
@@ -204,7 +248,7 @@
 				                                    <div class="alert alert-danger">{{ $message }}</div>
 				                                @enderror
 											</div>
-										</div>
+										</div> -->
 										<input type="hidden" value={{$single_blog->id}} name="blog_id"/>
 										<div class="col-md-12">
 											<div class="form-group">
@@ -217,7 +261,7 @@
 										</div>
 										<div class="col-md-12">
 											<div class="form-group button">	
-												<button type="submit" class="button primary"><i class="fa fa-send"></i>Submit</button>
+												<button type="button" class="comment-submit button primary"><i class="fa fa-send"></i>Submit</button>
 											</div>
 										</div>
 									</div>

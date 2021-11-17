@@ -81,7 +81,9 @@ class RegisterController extends Controller
         ]);
 
         if($user)
-            return view('frontend.auth.login');
+            return json_encode(array('success' => 'true'));
+        else
+            return json_encode(array('error' => 'true'));
     }
 
     public function index(){
