@@ -59,8 +59,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- Start Pagination -->
                             <div class="pagination-main">
+                                {{ $blogs->links('vendor.pagination.default') }}
+                            </div>
+                            <!-- Start Pagination -->
+                            <!-- <div class="pagination-main">
                                 <ul class="pagination">
                                     <li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
                                     <li><a href="#">1</a></li>
@@ -71,7 +74,7 @@
                                     <li><a href="#">6</a></li>
                                     <li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <!--/ End Pagination -->
                         </div>
                     </div>          

@@ -13,9 +13,10 @@ class BlogController extends Controller
 {
     public function index()
     {
+        $page_cnt = 12;
     	$blogs = Blog::leftjoin('users', 'blogs.user_id', 'users.id')
                 ->select('blogs.*', 'users.name')
-                ->get();
+                ->paginate($page_cnt);
 
         return view('frontend.blog.list', [
         	'blogs' => $blogs

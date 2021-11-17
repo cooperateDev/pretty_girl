@@ -15,6 +15,10 @@ class CommentController extends Controller
     {
         $desc = $request->desc;
         $blog_id = $request->blog_id;
+        
+    	if(!Auth::check()) {
+    		return redirect('/blog/detail/' . $blog_id);
+    	}
 
         $messages = [
             'required' => 'The :attribute field is required.',

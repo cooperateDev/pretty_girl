@@ -11,7 +11,7 @@
  Target Server Version : 100419
  File Encoding         : 65001
 
- Date: 16/11/2021 03:50:38
+ Date: 16/11/2021 18:40:53
 */
 
 SET NAMES utf8mb4;
@@ -34,22 +34,39 @@ CREATE TABLE `blogs`  (
   `user_id` int(11) NULL DEFAULT NULL,
   `img_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of blogs
 -- ----------------------------
-INSERT INTO `blogs` VALUES (1, '10 Tips For Growing Your Business', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:36:13', '2021-11-08 06:36:13', '1', '0', NULL, NULL, 100, '1.png');
-INSERT INTO `blogs` VALUES (2, 'Amazing Multipage & Onepage', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:36:13', '2021-11-17 06:36:13', '3', '0', NULL, NULL, 100, '2.png');
-INSERT INTO `blogs` VALUES (3, 'Awesome Vimeo Video Song Ever', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:40:23', '2021-11-16 06:40:23', '12', '0', NULL, NULL, 100, '3.jpg');
-INSERT INTO `blogs` VALUES (4, 'What Makes Us Best In The World?', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:55:41', '2021-11-01 06:55:41', '56', '0', NULL, NULL, 2, '4.jpg');
-INSERT INTO `blogs` VALUES (5, 'Tips For Success In 2017', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 07:06:37', '2021-11-16 07:06:37', '48', '0', NULL, NULL, 3, '5.png');
-INSERT INTO `blogs` VALUES (6, 'tests', 'descricption.', '2021-11-16 06:36:13', '2021-11-16 06:36:13', '0', '0', NULL, NULL, 4, '6.jpg');
-INSERT INTO `blogs` VALUES (7, 'wer', 'wer', '2021-11-16 06:40:23', '2021-11-05 06:40:23', '0', '0', NULL, NULL, 6, '6.jpg');
-INSERT INTO `blogs` VALUES (8, 'test1', 'tests2', '2021-11-16 06:55:41', '2021-11-16 06:55:41', '0', '0', NULL, NULL, 2, '1637045741_5.jpg');
-INSERT INTO `blogs` VALUES (9, '1111', '111', '2021-11-16 07:06:37', '2021-11-16 07:06:37', '0', '0', NULL, NULL, 6, '1637046397_6.jpg');
-INSERT INTO `blogs` VALUES (10, '132', '123', '2021-11-16 07:08:21', '2021-11-06 07:08:21', '0', '0', NULL, NULL, 5, '5.png');
-INSERT INTO `blogs` VALUES (11, '24', '234', '2021-11-16 07:10:20', '2021-11-16 07:10:20', '0', '0', NULL, NULL, 3, '1637046620_3.jpg');
+INSERT INTO `blogs` VALUES (1, '10 Tips For Growing Your Business', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised 32325232', '2021-11-16 06:36:13', '2021-11-17 00:04:01', '16', '11', NULL, NULL, 3, '1637089178_5.jpg');
+INSERT INTO `blogs` VALUES (2, 'Amazing Multipage & Onepage', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:36:13', '2021-11-16 18:52:43', '7', '5', NULL, NULL, 100, '2.png');
+INSERT INTO `blogs` VALUES (3, 'Awesome Vimeo Video Song Ever', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:40:23', '2021-11-16 17:11:12', '6', '1', NULL, NULL, 100, '3.jpg');
+INSERT INTO `blogs` VALUES (4, 'What Makes Us Best In The World?', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:55:41', '2021-11-16 17:16:36', '8', '1', NULL, NULL, 2, '4.jpg');
+INSERT INTO `blogs` VALUES (5, 'Tips For Success In 2017', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 07:06:37', '2021-11-16 18:04:08', '4', '0', NULL, NULL, 3, '5.png');
+INSERT INTO `blogs` VALUES (13, 'test Blogs', 'This is the test blog page.', '2021-11-16 17:18:07', '2021-11-16 17:19:56', '2', '0', '0', '0', 3, '1637083087_3.jpg');
+INSERT INTO `blogs` VALUES (14, 'Image preview123', 'This is for the test preview image.12312312312312', '2021-11-16 18:39:28', '2021-11-16 18:52:11', '12', '0', '0', '0', 3, '1637088139_3.jpg');
+INSERT INTO `blogs` VALUES (15, '10 Tips For Growing Your Business', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised 32325232', '2021-11-16 06:36:13', '2021-11-17 00:04:01', '16', '11', NULL, NULL, 3, '1637089178_5.jpg');
+INSERT INTO `blogs` VALUES (16, 'Amazing Multipage & Onepage', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:36:13', '2021-11-17 01:36:37', '13', '6', NULL, NULL, 3, '2.png');
+INSERT INTO `blogs` VALUES (17, 'Awesome Vimeo Video Song Ever', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:40:23', '2021-11-16 17:11:12', '6', '1', NULL, NULL, 100, '3.jpg');
+INSERT INTO `blogs` VALUES (18, 'What Makes Us Best In The World?', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:55:41', '2021-11-17 01:27:52', '10', '1', NULL, NULL, 2, '4.jpg');
+INSERT INTO `blogs` VALUES (19, 'Tips For Success In 2017', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 07:06:37', '2021-11-16 18:04:08', '4', '0', NULL, NULL, 3, '5.png');
+INSERT INTO `blogs` VALUES (20, 'test Blogs', 'This is the test blog page.', '2021-11-16 17:18:07', '2021-11-16 17:19:56', '2', '0', '0', '0', 3, '1637083087_3.jpg');
+INSERT INTO `blogs` VALUES (21, 'Image preview123', 'This is for the test preview image.12312312312312', '2021-11-16 18:39:28', '2021-11-16 18:52:11', '12', '0', '0', '0', 3, '1637088139_3.jpg');
+INSERT INTO `blogs` VALUES (22, '10 Tips For Growing Your Business', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised 32325232', '2021-11-16 06:36:13', '2021-11-17 01:38:56', '26', '12', NULL, NULL, 3, '1637089178_5.jpg');
+INSERT INTO `blogs` VALUES (23, 'Amazing Multipage & Onepage', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:36:13', '2021-11-16 18:52:43', '7', '5', NULL, NULL, 100, '2.png');
+INSERT INTO `blogs` VALUES (24, 'Awesome Vimeo Video Song Ever', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:40:23', '2021-11-16 17:11:12', '6', '1', NULL, NULL, 100, '3.jpg');
+INSERT INTO `blogs` VALUES (25, 'What Makes Us Best In The World?', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:55:41', '2021-11-16 17:16:36', '8', '1', NULL, NULL, 2, '4.jpg');
+INSERT INTO `blogs` VALUES (26, 'Tips For Success In 2017', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 07:06:37', '2021-11-16 18:04:08', '4', '0', NULL, NULL, 3, '5.png');
+INSERT INTO `blogs` VALUES (27, 'test Blogs', 'This is the test blog page.', '2021-11-16 17:18:07', '2021-11-16 17:19:56', '2', '0', '0', '0', 3, '1637083087_3.jpg');
+INSERT INTO `blogs` VALUES (28, 'Image preview123', 'This is for the test preview image.12312312312312', '2021-11-16 18:39:28', '2021-11-16 18:52:11', '12', '0', '0', '0', 3, '1637088139_3.jpg');
+INSERT INTO `blogs` VALUES (29, '10 Tips For Growing Your Business', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised 32325232', '2021-11-16 06:36:13', '2021-11-17 00:04:01', '16', '11', NULL, NULL, 3, '1637089178_5.jpg');
+INSERT INTO `blogs` VALUES (30, 'Amazing Multipage & Onepage', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:36:13', '2021-11-16 18:52:43', '7', '5', NULL, NULL, 100, '2.png');
+INSERT INTO `blogs` VALUES (31, 'Awesome Vimeo Video Song Ever', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:40:23', '2021-11-16 17:11:12', '6', '1', NULL, NULL, 100, '3.jpg');
+INSERT INTO `blogs` VALUES (32, 'What Makes Us Best In The World?', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedMirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 06:55:41', '2021-11-16 17:16:36', '8', '1', NULL, NULL, 2, '4.jpg');
+INSERT INTO `blogs` VALUES (33, 'Tips For Success In 2017', 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised', '2021-11-16 07:06:37', '2021-11-16 18:04:08', '4', '0', NULL, NULL, 3, '5.png');
+INSERT INTO `blogs` VALUES (34, 'test Blogs', 'This is the test blog page.', '2021-11-16 17:18:07', '2021-11-16 17:19:56', '2', '0', '0', '0', 3, '1637083087_3.jpg');
+INSERT INTO `blogs` VALUES (35, 'Image preview123', 'This is for the test preview image.12312312312312', '2021-11-16 18:39:28', '2021-11-16 18:52:11', '12', '0', '0', '0', 3, '1637088139_3.jpg');
 
 -- ----------------------------
 -- Table structure for comments
@@ -63,7 +80,7 @@ CREATE TABLE `comments`  (
   `updated_at` datetime(0) NULL DEFAULT NULL,
   `user_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of comments
@@ -73,28 +90,23 @@ INSERT INTO `comments` VALUES (2, 2, 'xcv', '2021-11-16 09:06:41', '2021-11-16 0
 INSERT INTO `comments` VALUES (3, 2, '1111', '2021-11-16 09:07:19', '2021-11-16 09:07:19', 4);
 INSERT INTO `comments` VALUES (4, 2, '1111', '2021-11-16 09:07:19', '2021-11-16 09:07:19', 2);
 INSERT INTO `comments` VALUES (5, 2, 'd', '2021-11-16 09:07:32', '2021-11-16 09:07:32', 5);
-
--- ----------------------------
--- Table structure for slides
--- ----------------------------
-DROP TABLE IF EXISTS `slides`;
-CREATE TABLE `slides`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` datetime(0) NULL DEFAULT NULL,
-  `updated_at` datetime(0) NULL DEFAULT NULL,
-  `order` int(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of slides
--- ----------------------------
-INSERT INTO `slides` VALUES (64, '1.png', NULL, '2021-05-24 12:10:11', '2021-05-24 12:10:11', 1);
-INSERT INTO `slides` VALUES (65, '2.png', NULL, '2021-05-24 12:10:11', '2021-05-24 12:10:11', 2);
-INSERT INTO `slides` VALUES (67, 'portfolioapp_4x.png', NULL, '2021-05-24 12:20:30', '2021-05-24 12:20:30', 4);
-INSERT INTO `slides` VALUES (69, '5a81539babea8.jpg', NULL, '2021-05-24 12:38:37', '2021-05-24 12:38:37', 3);
+INSERT INTO `comments` VALUES (6, 1, 'The website is very wonderful.\r\nThis is a blog site.\r\nOn the blog site, you can post the blog data using your name.', '2021-11-16 11:01:55', '2021-11-16 11:01:55', 3);
+INSERT INTO `comments` VALUES (7, 1, 'The quras.io project is Blockchain project.\r\nThe project is very wonderful, There are many people that use this project.\r\nThank you. Best reagards.', '2021-11-16 16:27:37', '2021-11-16 16:27:37', 3);
+INSERT INTO `comments` VALUES (8, 1, 'The quras.io project is Blockchain project.\r\nThe project is very wonderful, There are many people that use this project.\r\nThank you. Best reagards.', '2021-11-16 16:32:42', '2021-11-16 16:32:42', 3);
+INSERT INTO `comments` VALUES (9, 1, 'The quras.io project is Blockchain project.\r\nThe project is very wonderful, There are many people that use this project.\r\nThank you. Best reagards.', '2021-11-16 16:33:28', '2021-11-16 16:33:28', 3);
+INSERT INTO `comments` VALUES (10, 1, '132321', '2021-11-16 16:39:00', '2021-11-16 16:39:00', 3);
+INSERT INTO `comments` VALUES (11, 1, '132321', '2021-11-16 16:39:38', '2021-11-16 16:39:38', 3);
+INSERT INTO `comments` VALUES (12, 1, '132321', '2021-11-16 16:40:53', '2021-11-16 16:40:53', 3);
+INSERT INTO `comments` VALUES (13, 1, '132321', '2021-11-16 16:42:38', '2021-11-16 16:42:38', 3);
+INSERT INTO `comments` VALUES (14, 1, '132321', '2021-11-16 16:43:02', '2021-11-16 16:43:02', 3);
+INSERT INTO `comments` VALUES (15, 1, '2352323', '2021-11-16 16:46:20', '2021-11-16 16:46:20', 3);
+INSERT INTO `comments` VALUES (16, 1, 'vvvvvvvvvvvvv', '2021-11-16 16:46:36', '2021-11-16 16:46:36', 3);
+INSERT INTO `comments` VALUES (17, 7, 'sdfsdf', '2021-11-16 16:49:50', '2021-11-16 16:49:50', 3);
+INSERT INTO `comments` VALUES (18, 7, 'sssssssssss', '2021-11-16 16:50:46', '2021-11-16 16:50:46', 3);
+INSERT INTO `comments` VALUES (19, 3, 'Test comment', '2021-11-16 17:10:57', '2021-11-16 17:10:57', 3);
+INSERT INTO `comments` VALUES (20, 4, 'test comment.', '2021-11-16 17:15:56', '2021-11-16 17:15:56', 3);
+INSERT INTO `comments` VALUES (21, 16, 'asdassa', '2021-11-17 01:31:34', '2021-11-17 01:31:34', 3);
+INSERT INTO `comments` VALUES (22, 22, 'sdfhghkjkl;;\'', '2021-11-17 01:38:55', '2021-11-17 01:38:55', 3);
 
 -- ----------------------------
 -- Table structure for users

@@ -7,8 +7,12 @@ $(document).ready(function(){
     
     if(history_item == undefined || history_item == '')
         $('.menu-home').removeClass('active');
-    else
+    else {
+        if(history_item.includes('?')) {
+            history_item = history_item.split('?')[0];
+        }
         $('.menu-'+history_item).removeClass('active');    
+    }
 
     var string_url = window.location.href;
     // production
@@ -19,6 +23,9 @@ $(document).ready(function(){
     if(item == undefined || item == '') {
         $('.menu-home').addClass('active');
     } else {
+        if(item.includes('?')) {
+            item = item.split('?')[0];
+        }
         $('.menu-'+item).addClass('active');
     }
 });
