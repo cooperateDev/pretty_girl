@@ -42,7 +42,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -52,9 +51,9 @@ class RegisterController extends Controller
     protected function create(Request $request)
     {
 
-        $name=$request->name;
-        $email=$request->email;
-        $password=$request->password;
+        $name = $request->name;
+        $email = $request->email;
+        $password = $request->password;
 
         $messages = [
             'required' => 'The :attribute field is required.',
@@ -70,20 +69,37 @@ class RegisterController extends Controller
             return redirect('/signup')
                         ->withErrors($validator)
                         ->withInput();
+        }
 
+        $image = "";
+
+        if($_FILES["file"]["name"]) {
+            $temp = explode(".", $_FILES["file"]["name"]);
+            $extension = end($temp);
+
+            $image = time() . '_' . $_FILES["file"]["name"];
+
+            if (file_exists("upload/images/avatar/" . $image)) 
+                unlink("upload/images/avatar/" . $image);
+       
+            move_uploaded_file($_FILES["file"]["tmp_name"],
+            "upload/images/avatar/" . $image);
         }
 
         $user = User::create([
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($password),
+            'avatar' => $image,
             'role' => 1
         ]);
 
-        if($user)
-            return json_encode(array('success' => 'true'));
-        else
-            return json_encode(array('error' => 'true'));
+        // if($user)
+        //     return json_encode(array('success' => 'true'));
+        // else
+        //     return json_encode(array('error' => 'true'));
+
+        return view('frontend.auth.login');
     }
 
     public function index(){

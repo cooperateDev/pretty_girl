@@ -66,4 +66,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('/member_del/{id}', 'MemberController@member_del');
 	Route::post('/member_edit/{id}', 'MemberController@member_edit');
 
+	// Blog Management
+	Route::get('/blog', 'BlogController@index');
+	Route::get('/blog_info/{id}', 'BlogController@getBlog');
+	Route::get('/blog_del/{id}', 'BlogController@delete');
 });

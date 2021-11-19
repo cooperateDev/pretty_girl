@@ -67,24 +67,24 @@ $(document).ready(function(){
         });
     })
 
-    $('.signup-submit').on('click', function() {
-        $.ajax({
-          type: "POST",
-          url: basic_url + '/signup',
-          data: $("#form_signup").serialize(),
-          dataType: "json",
-          encode: true,
-          success: function(data) {
-            toastr.success("Registration is complete.");
-            window.location.href = basic_url + '/login';
-          },
-          error: function(error) {
-            toastr.error("Registration failed.");
-          }
-        }).done(function (data) {
-          // console.log(data);
-        });
-    })
+    // $('.signup-submit').on('click', function() {
+    //     $.ajax({
+    //       type: "POST",
+    //       url: basic_url + '/signup',
+    //       data: $("#form_signup").serialize(),
+    //       dataType: "json",
+    //       encode: true,
+    //       success: function(data) {
+    //         toastr.success("Registration is complete.");
+    //         window.location.href = basic_url + '/login';
+    //       },
+    //       error: function(error) {
+    //         toastr.error("Registration failed.");
+    //       }
+    //     }).done(function (data) {
+    //       // console.log(data);
+    //     });
+    // })
 });
 
 var global_comment_id;

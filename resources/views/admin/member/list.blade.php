@@ -57,7 +57,7 @@
                                     <h4>Member List </h4>
                                 </div>
                                 <div class="bootstrap-data-table-panel">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive" style="overflow: hidden">
                                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>

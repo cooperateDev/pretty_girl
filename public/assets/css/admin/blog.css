@@ -46,3 +46,12 @@
 .desc-width {
   min-width: 400px;
 }
+
+.back-btn {
+  float: right;
+  cursor: pointer;  
+}
+
+.back-btn:hover {
+  color: red;
+}

@@ -45,6 +45,7 @@
                 <ul>
                     <li><a href="{{url('admin/')}}"><i class="ti-home"></i> Dashboard </a></li>
                     <li><a href="{{url('admin/member')}}"><i class="ti-user"></i> Member Management </a></li>
+                    <li><a href="{{url('admin/blog')}}"><i class="ti-files"></i> Blog Management </a></li>
                 </ul>
             </div>
         </div>

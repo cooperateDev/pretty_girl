@@ -47,9 +47,8 @@ class MemberController extends Controller
     public function member_add(Request $request)
     {
 
-        $name=$request->name;
-        $email=$request->email;
-        $skill=$request->skill;
+        $name = $request->name;
+        $email = $request->email;
 
         $avatar = "";
         $current_member = array();
@@ -65,7 +64,6 @@ class MemberController extends Controller
             "upload/images/avatar/" . $_FILES["file"]["name"]);
             $avatar = $_FILES["file"]["name"];
         }
-      
 
         $messages = [
             'required' => 'The :attribute field is required.',
@@ -74,31 +72,27 @@ class MemberController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|unique:users',
             'name' => 'required',
-            'skill' => 'required',
         ],$messages);
 
         if ($validator->fails()) {
             return redirect('admin/member')
                         ->withErrors($validator)
                         ->withInput();
-
         }
 
         if ($avatar != "")
             $user = User::create([
                 'name' => $name,
                 'email' => $email,
-                'skill' => $skill,
                 'role' => '1',
                 'avatar' => $avatar
-                ]);
+            ]);
         else
             $user = User::create([
                 'name' => $name,
                 'email' => $email,
-                'skill' => $skill,
                 'role' => '1',
-                ]);
+            ]);
         
         return redirect('admin/member');
     }
@@ -125,9 +119,8 @@ class MemberController extends Controller
     public function member_edit(Request $request, $id)
     {
 
-        $name=$request->name;
-        $email=$request->email;
-        $skill=$request->skill;
+        $name = $request->name;
+        $email = $request->email;
 
         $avatar = "";
         $current_member = array();
@@ -143,7 +136,6 @@ class MemberController extends Controller
             "upload/images/avatar/" . $_FILES["file"]["name"]);
             $avatar = $_FILES["file"]["name"];
         }
-      
 
         $messages = [
             'required' => 'The :attribute field is required.',
@@ -152,7 +144,6 @@ class MemberController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required',
             'name' => 'required',
-            'skill' => 'required',
         ],$messages);
 
         if ($validator->fails()) {
@@ -167,7 +158,6 @@ class MemberController extends Controller
                 ->update([
                     'name' => $name,
                     'email' => $email,
-                    'skill' => $skill,
                     'avatar' => $avatar,
                 ]);
         else
@@ -176,7 +166,6 @@ class MemberController extends Controller
                 ->update([
                     'name' => $name,
                     'email' => $email,
-                    'skill' => $skill,
                 ]);
 
         return redirect('admin/member');
