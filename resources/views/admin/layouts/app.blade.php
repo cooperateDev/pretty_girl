@@ -11,7 +11,6 @@
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
-   
 
     <!-- Retina iPad Touch Icon-->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">   
@@ -25,14 +24,11 @@
 
     <!-- Styles -->
     <link href="{{asset('assets/css/lib/chartist/chartist.min.css')}}" rel="stylesheet">
-
     <link href="{{asset('assets/css/lib/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/lib/themify-icons.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/lib/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/lib/owl.theme.default.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/lib/weather-icons.css')}}" rel="stylesheet">
-     <!-- <link href="{{asset('assets/css/lib/datatable/dataTables.bootstrap.min.css')}}" rel="stylesheet" /> -->
-    <!-- <link href="{{asset('assets/css/lib/datatable/buttons.bootstrap.min.css')}}" rel="stylesheet" /> -->
     <link href="{{asset('assets/css/lib/menubar/sidebar.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/lib/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/lib/unix.css')}}" rel="stylesheet">
@@ -47,17 +43,8 @@
         <div class="nano">
             <div class="nano-content">
                 <ul>
-                    @if(Auth::user()->role == 2)
                     <li><a href="{{url('admin/')}}"><i class="ti-home"></i> Dashboard </a></li>
                     <li><a href="{{url('admin/member')}}"><i class="ti-user"></i> Member Management </a></li>
-                    <li><a href="{{url('admin/task')}}"><i class="ti-briefcase"></i> Task Management</a></li>
-                    <li><a href="{{url('admin/slide')}}"><i class="ti-image"></i> Slide Management</a></li>
-                    <li><a href="{{url('admin/category')}}"><i class="ti-layout-grid2"></i> Category Management</a></li>
-                    <li><a href="{{url('admin/taskmng')}}"><i class="ti-layers-alt"></i>Task lists</a></li>
-                    <li><a href="{{url('admin/report')}}"><i class="ti-file"></i>Daily Report</a></li>
-                    @elseif(Auth::user()->role == 1)
-                    <li><a href="{{url('admin/report')}}"><i class="ti-file"></i>Daily Report</a></li>
-                    @endif
                 </ul>
             </div>
         </div>
@@ -73,7 +60,6 @@
         </div>
         <div class="pull-right p-r-15">
             <ul>
-               
                 <li class="header-icon dib"><img class="avatar-img" src="{{ asset('upload/images/avatar' . '/' . Auth::user()->avatar) }}" alt="" /> <span class="user-avatar">{{Auth::user()->name}} <i class="ti-angle-down f-s-10"></i></span>
                     <div class="drop-down dropdown-profile">
                         <div class="dropdown-content-body">
@@ -94,7 +80,6 @@
 
     <script src="{{asset('assets/js/lib/jquery.nanoscroller.min.js')}}"></script>
       <!-- nano scroller -->
-
     <script src="{{asset('assets/js/lib/menubar/sidebar.js')}}"></script>
     <script src="{{asset('assets/js/lib/preloader/pace.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/bootstrap.min.js')}}"></script>

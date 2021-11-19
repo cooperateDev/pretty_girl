@@ -43,7 +43,7 @@
                                     <option @if($status == 4) selected @endif value="4">Cancel</option>
                                 </select>
                             </div>
-                            <h3 class="total_price">Total Price :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ {{ $total_price }}</h3>
+                            <h3 class="total_price">Total Price :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
                             <div class="basic-form m-t-20 text-center">
                                 <div class="form-group">
                                     <button class="btn btn-default btn-lg m-b-10 bg-warning border-none m-r-5 sbmt-btn" type="submit">Filter</button>
@@ -79,61 +79,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php $i = 0; ?>
-                                                @foreach($tasks as $task)
-                                                    <?php $i++; ?>
-                                                    @if($task->status == 2)
-                                                        <tr class="complete">
-                                                    @elseif($task->status == 3 || $task->status == 4)
-                                                        <tr class="incomplete">
-                                                    @else
-                                                        <tr>
-                                                    @endif
-                                                        <td class="text-center">{{$i}}</td>
-                                                        <td class="name-width">
-                                                            {{$task->name}}
-                                                        </td>
-                                                        <td>
-                                                        @if($task->teammate != 0)
-                                                        {{$task->teammate}}
-                                                        @endif
-                                                        </td>
-                                                        <td>
-                                                            {{$task->title}}
-                                                        </td>
-                                                        <td class="desc desc-width">
-                                                            {{$task->desc}}
-                                                        </td>
-                                                        <td>
-                                                            @if($task->payment_mode == 1)
-                                                                Fixed
-                                                            @elseif($task->payment_mode == 2)
-                                                                Hourly
-                                                            @endif
-                                                        </td>
-                                                        <td class="text-right">
-                                                            {{$task->contract_price}}
-                                                        </td>
-                                                        <td>
-                                                            {{$task->start_date}}
-                                                        </td>
-                                                        <td>
-                                                            {{$task->end_date}}
-                                                        </td>
-                                                        <td>
-                                                        @if ($task->status == 1)
-                                                            Processing
-                                                        @elseif($task->status == 2)
-                                                            Complete
-                                                        @elseif($task->status == 3)
-                                                            Incomplete
-                                                        @elseif($task->status == 4)
-                                                            Cancel
-                                                        @endif
-                                                        </td>
-                                                        <td class="text-right">@if($task->paypal != 0){{$task->paypal}}@endif</td>
-                                                        <td class="text-right">@if($task->payoneer != 0){{$task->payoneer}}@endif</td>
-                                                    </tr>
-                                                @endforeach
+                                                
                                             </tbody>
                                         </table>
                                     </div>

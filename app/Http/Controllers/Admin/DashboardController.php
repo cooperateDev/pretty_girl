@@ -7,7 +7,6 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-use App\Models\TaskMNG;
 use App\Models\User;
 use DB;
 
@@ -51,38 +50,7 @@ class DashboardController extends Controller
         $start = $year . '-' . $month . '-01';
         $end = $year . '-' . $month . '-31';
 
-        $tasks = TaskMNG::select('task_mngs.*', 'users.name')
-                ->leftJoin('users', 'task_mngs.user_id', '=', 'users.id')
-                ->orderby('task_mngs.id', 'desc')
-                ->where(function($query) use ($start, $end, $filter) {
-                    if($filter) {
-                        $query->whereBetween('end_date', [$start, $end]);
-                    } else {
-                        $query->orWhere('end_date', null)
-                          ->orWhereBetween('end_date', [$start, $end]);    
-                    }
-                });
-
-        if($status != 0)
-            $tasks = $tasks->where('status', $status);
-
-        $tasks = $tasks->get();
-
-        $paypal_price = TaskMNG::where(function($query) use ($start, $end, $filter) {
-                                    if($filter)
-                                        $query->whereBetween('paypal_date', [$start, $end]);
-                                })
-                        ->sum('paypal');
-
-        $payoneer_price = TaskMNG::where(function($query) use ($start, $end, $filter) {
-                                    if($filter)
-                                        $query->whereBetween('payoneer_date', [$start, $end]);
-                                })
-                        ->sum('payoneer');
-        
         return view('admin.dashboard',[
-            'tasks'         => $tasks,
-            'total_price'   => $paypal_price + $payoneer_price,
             'status'        => $status,
             'month'         => $month,
             'year'          => $year,

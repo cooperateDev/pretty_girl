@@ -68,7 +68,7 @@ class LoginController extends Controller
          //var_dump($credentials);die;
         if (Auth::attempt(['email' => $email, 'password' => $password ])) {
             // Authentication passed...
-             return redirect('admin/report');
+             return redirect('admin');
         }
         else
         {

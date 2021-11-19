@@ -7,7 +7,6 @@
     <script src="{{asset('assets/js/pages/member.js')}}"></script>
 @endsection
 @section('page')
-
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -40,15 +39,6 @@
                                     </div>
                                     <div class="basic-form m-t-20">
                                         <div class="form-group">
-                                            <label>Skills</label>
-                                            <input type="text" name="skill" @if( count($current_member)!=0) value="{{$current_member[0]->skill}}" @endif  class="form-control border-none input-flat bg-ash" placeholder="">
-                                             @error('skill')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="basic-form m-t-20">
-                                        <div class="form-group">
                                             <label>Photo</label>
                                             <input type="file" name="file" accept="image/*">
                                         </div>
@@ -59,14 +49,12 @@
                                         </div>
                                     </div>
                                 </form>
-                              
                             </div>
                         </div>
                         <div class="col-lg-9">
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Member List </h4>
-                                    
                                 </div>
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
@@ -76,7 +64,6 @@
                                                     <th class="text-center">Avatar</th>
                                                     <th >Name</th>
                                                     <th>Email</th>
-                                                    <th>Skills</th>
                                                     <th style="text-align:center">Actions</th>
                                                 </tr>
                                             </thead>
@@ -94,9 +81,6 @@
                                                          <td>
                                                             {{$member->email}}
                                                         </td>
-                                                         <td>
-                                                            {{$member->skill}}
-                                                        </td>
                                                          <td style="text-align:center">
                                                             <span><a href="{{url('admin/member_info/'.$member->id)}}"><i class="ti-pencil-alt color-success"></i></a></span>
                                                             <span><a href="{{url('admin/member_del/'.$member->id)}}"><i class="ti-trash color-danger"></i> </a></span>
@@ -113,7 +97,6 @@
                         <!-- /# column -->
                     </div>
                     <!-- /# row -->
-                    
                 </section>
             </div>
         </div>

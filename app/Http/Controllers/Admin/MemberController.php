@@ -124,7 +124,6 @@ class MemberController extends Controller
 
     public function member_edit(Request $request, $id)
     {
-        
 
         $name=$request->name;
         $email=$request->email;
@@ -160,7 +159,6 @@ class MemberController extends Controller
             return redirect('admin/member')
                         ->withErrors($validator)
                         ->withInput();
-
         }
 
         if ($avatar != "")
